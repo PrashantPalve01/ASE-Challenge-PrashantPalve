@@ -1,4 +1,3 @@
-// src/components/Modal.tsx
 import { ReactNode, useEffect } from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";

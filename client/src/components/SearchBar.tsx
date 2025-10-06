@@ -1,4 +1,3 @@
-// src/components/SearchBar.tsx
 import { ChangeEvent } from "react";
 import clsx from "clsx";
 
@@ -25,7 +24,7 @@ export default function SearchBar({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className="input pl-9"
+        className="input pl-10 pr-3"
       />
       <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
         🔎

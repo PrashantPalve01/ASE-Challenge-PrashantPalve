@@ -16,21 +16,24 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
   }
   .btn-primary {
-    @apply bg-brand-600 text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+    @apply bg-brand-600 text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-white;
   }
   .btn-outline {
     @apply border border-slate-300 text-slate-700 hover:bg-slate-100;
   }
+  .btn-ghost {
+    @apply text-slate-700 hover:bg-slate-100;
+  }
   .input {
-    @apply block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500;
+    @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/40;
   }
   .label {
     @apply mb-1 block text-sm font-medium text-slate-700;
   }
   .card {
-    @apply rounded-xl bg-white p-5 shadow-card;
+    @apply rounded-2xl bg-white p-5 shadow-card;
   }
 }

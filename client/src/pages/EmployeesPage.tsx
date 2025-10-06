@@ -1,4 +1,3 @@
-// src/pages/EmployeesPage.tsx
 import { useMemo, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -53,7 +52,7 @@ export default function EmployeesPage() {
     mutationFn: ({ id, values }: { id: number; values: Partial<Employee> }) =>
       updateEmployee(id, values),
     onMutate: async ({ id, values }) => {
-      await refetch(); // ensure baseline
+      await refetch();
       toast.loading("Updating...", { id: "upd" });
       return { id, values };
     },

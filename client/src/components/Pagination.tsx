@@ -1,4 +1,3 @@
-// src/components/Pagination.tsx
 type Props = {
   page: number;
   limit: number;
@@ -26,30 +25,30 @@ export default function Pagination({
         <span className="font-medium">{totalPages}</span>
       </div>
       <div className="order-1 w-full sm:order-2 sm:w-auto">
-        <div className="inline-flex w-full justify-center rounded-lg border border-slate-300 bg-white shadow-sm sm:w-auto">
+        <div className="inline-flex w-full justify-center rounded-lg border border-brand-600 bg-white shadow-sm sm:w-auto">
           <button
-            className="px-3 py-2 text-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed hover:bg-slate-50 rounded-l-lg"
+            className="px-3 py-2 text-brand-700 hover:bg-brand-50 disabled:text-slate-400 disabled:cursor-not-allowed rounded-l-lg"
             onClick={() => go(1)}
             disabled={page === 1}
           >
             «
           </button>
           <button
-            className="px-3 py-2 text-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed hover:bg-slate-50 border-l border-slate-200"
+            className="px-3 py-2 text-brand-700 hover:bg-brand-50 disabled:text-slate-400 disabled:cursor-not-allowed border-l border-brand-200"
             onClick={() => go(page - 1)}
             disabled={page === 1}
           >
             Prev
           </button>
           <button
-            className="px-3 py-2 text-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed hover:bg-slate-50 border-l border-slate-200"
+            className="px-3 py-2 text-brand-700 hover:bg-brand-50 disabled:text-slate-400 disabled:cursor-not-allowed border-l border-brand-200"
             onClick={() => go(page + 1)}
             disabled={page === totalPages}
           >
             Next
           </button>
           <button
-            className="px-3 py-2 text-slate-700 disabled:text-slate-400 disabled:cursor-not-allowed hover:bg-slate-50 border-l border-slate-200 rounded-r-lg"
+            className="px-3 py-2 text-brand-700 hover:bg-brand-50 disabled:text-slate-400 disabled:cursor-not-allowed border-l border-brand-200 rounded-r-lg"
             onClick={() => go(totalPages)}
             disabled={page === totalPages}
           >

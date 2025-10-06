@@ -1,4 +1,3 @@
-// src/components/Table.tsx
 import { ReactNode } from "react";
 import clsx from "clsx";
 
@@ -22,7 +21,7 @@ export function Table({
 
 export function THead({ children }: { children: ReactNode }) {
   return (
-    <thead className="bg-slate-50">
+    <thead className="bg-slate-100/80">
       <tr>{children}</tr>
     </thead>
   );
@@ -39,7 +38,7 @@ export function TH({
     <th
       scope="col"
       className={clsx(
-        "px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-600",
+        "px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-600 sticky top-0 bg-slate-100/80 backdrop-blur z-10",
         className
       )}
     >
@@ -49,11 +48,15 @@ export function TH({
 }
 
 export function TBody({ children }: { children: ReactNode }) {
-  return <tbody className="divide-y divide-slate-200">{children}</tbody>;
+  return (
+    <tbody className="divide-y divide-slate-200 odd:bg-white even:bg-slate-50/50">
+      {children}
+    </tbody>
+  );
 }
 
 export function TR({ children }: { children: ReactNode }) {
-  return <tr className="hover:bg-slate-50">{children}</tr>;
+  return <tr className="hover:bg-slate-100/60">{children}</tr>;
 }
 
 export function TD({

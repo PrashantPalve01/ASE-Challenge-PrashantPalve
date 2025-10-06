@@ -1,4 +1,3 @@
-// src/components/ConfirmDialog.tsx
 import Modal from "./Modal";
 
 type Props = {
