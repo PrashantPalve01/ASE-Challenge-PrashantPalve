@@ -18,8 +18,6 @@ A modern, full-stack CRUD application for managing employee records built with R
 - [Running Tests](#running-tests)
 - [Design Decisions](#design-decisions)
 - [Assumptions](#assumptions)
-- [Screenshots](#screenshots)
-- [Video Demo](#video-demo)
 
 ---
 
@@ -121,7 +119,7 @@ employee-management-system/
 │   │   └── server.ts
 │   ├── tests/
 │   │   └── employee.test.ts
-│   ├── .env
+│   ├── .env.example
 │   ├── package.json
 │   ├── tsconfig.json
 │   └── README.md
@@ -176,8 +174,8 @@ npm --version   # Should be 9 or higher
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/PrashantPalve01/ASE-Challenge-PrashantPalve
-cd ASE-Challenge-PrashantPalve
+git clone <repository-url>
+cd employee-management-system
 ```
 
 ### 2. Backend Setup
@@ -206,10 +204,10 @@ Backend will run on **http://localhost:5000**
 
 ### 3. Frontend Setup
 
-Open a new terminal:
+Open a new terminal from the root directory:
 
 ```bash
-# Navigate to frontend directory (from root)
+# Navigate to frontend directory
 cd client
 
 # Install dependencies
@@ -242,11 +240,10 @@ The frontend will automatically connect to the backend API.
 
 ```bash
 # Navigate to backend directory
-cd backend
+cd server
 
 # Run all tests
 npm test
-
 ```
 
 **Expected Coverage:**
@@ -292,6 +289,34 @@ curl -X DELETE http://localhost:5000/api/employees/1
 # Search Employees
 curl "http://localhost:5000/api/employees?search=john"
 ```
+
+---
+
+## 📋 Environment Variables
+
+The project uses `.env` files for configuration.
+
+### Backend (.env in `/server`)
+
+Copy `.env.example` to `.env` and use these values:
+
+```env
+PORT=5000
+NODE_ENV=development
+DATABASE_URL="file:./dev.db"
+```
+
+**Note:** For local development, these default values work out of the box.
+
+### Frontend (.env in `/client`)
+
+Copy `.env.example` to `.env` and use these values:
+
+```env
+VITE_API_BASE_URL=http://localhost:5000/api
+```
+
+**Note:** Make sure the backend is running on port 5000 before starting the frontend.
 
 ---
 
@@ -401,44 +426,6 @@ curl "http://localhost:5000/api/employees?search=john"
 
 ---
 
-## 🚢 Deployment (Optional)
-
-### Backend Deployment
-
-**Recommended:** Railway, Render, or Heroku
-
-```bash
-npm run build
-npm start
-```
-
-### Frontend Deployment
-
-**Recommended:** Vercel or Netlify
-
-```bash
-npm run build
-# Upload dist/ folder
-```
-
-### Environment Variables for Production
-
-**Backend:**
-
-```env
-PORT=5000
-NODE_ENV=production
-DATABASE_URL="postgresql://user:pass@host:5432/db"
-```
-
-**Frontend:**
-
-```env
-VITE_API_BASE_URL=https://your-backend-api.com/api
-```
-
----
-
 ## 🐛 Troubleshooting
 
 ### Backend Issues
@@ -458,6 +445,13 @@ npx prisma generate
 npx prisma migrate reset
 ```
 
+**Missing .env file:**
+
+```bash
+# Ensure you've copied .env.example to .env
+cp .env.example .env
+```
+
 ### Frontend Issues
 
 **Port 5173 already in use:**
@@ -467,7 +461,19 @@ npx prisma migrate reset
 **CORS errors:**
 
 - Ensure backend is running on port 5000
-- Check VITE_API_BASE_URL in frontend .env
+- Check `VITE_API_BASE_URL` in frontend `.env` matches your backend URL
+
+**Missing .env file:**
+
+```bash
+# Ensure you've copied .env.example to .env
+cp .env.example .env
+```
+
+**API connection failed:**
+
+- Verify backend is running: `curl http://localhost:5000/health`
+- Check frontend `.env` has correct `VITE_API_BASE_URL`
 
 ---
 
@@ -494,7 +500,7 @@ http://localhost:5000/api/employees
 
 ## 🤝 Contributing
 
-This is a assignment project, but suggestions are welcome!
+This is an assignment project, but suggestions are welcome!
 
 ---
 
@@ -506,7 +512,7 @@ This project is for educational and portfolio purposes.
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Prashant Palve**
 
 - GitHub: [@prashantpalve](https://github.com/prashantpalve01)
 - LinkedIn: [Prashant Palve](https://www.linkedin.com/in/prashantpalve/)
