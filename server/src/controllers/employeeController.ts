@@ -77,10 +77,8 @@ export const createEmployee = async (
   next: NextFunction
 ) => {
   try {
-    // Validate request body
     const validatedData = employeeSchema.parse(req.body);
 
-    // Check if email already exists
     const existingEmployee = await prisma.employee.findUnique({
       where: { email: validatedData.email },
     });
@@ -122,10 +120,8 @@ export const updateEmployee = async (
   try {
     const { id } = req.params;
 
-    // Validate request body
     const validatedData = updateEmployeeSchema.parse(req.body);
 
-    // Check if employee exists
     const existingEmployee = await prisma.employee.findUnique({
       where: { id: parseInt(id) },
     });
@@ -137,7 +133,6 @@ export const updateEmployee = async (
       });
     }
 
-    // If email is being updated, check if new email already exists
     if (validatedData.email && validatedData.email !== existingEmployee.email) {
       const emailExists = await prisma.employee.findUnique({
         where: { email: validatedData.email },
